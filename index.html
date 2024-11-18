@@ -54,7 +54,7 @@
                         <li><a>Contact Us</a></li>
                     </ul>
                 </div>
-                <a class="btn btn-ghost text-3xl text-red-600">DonateRed</a>
+                <a class="btn btn-ghost text-3xl text-red-600 hover:bg-transparent">DonateRed</a>
             </div>
 
             <div class="form-control mr-6">
@@ -63,10 +63,10 @@
 
             <div class="navbar-center hidden lg:flex">
                 <ul class="menu menu-horizontal px-1">
-                    <li class="hover:text-red-700"><a href="#">Home</a></li>
-                    <li class="hover:text-red-700"><a href="#about">About</a></li>
-                    <li class="hover:text-red-700"><a href="#about">Donations</a></li>
-                    <li class="hover:text-red-700"><a href="#about">Contact Us</a></li>
+                    <li class="hover:text-red-700"><a class="hover:bg-transparent" href="#">Home</a></li>
+                    <li class="hover:text-red-700"><a class="hover:bg-transparent" href="#about">About</a></li>
+                    <li class="hover:text-red-700"><a class="hover:bg-transparent" href="#donation">Donations</a></li>
+                    <li class="hover:text-red-700"><a class="hover:bg-transparent" href="#footer">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -78,7 +78,7 @@
 
     <!-- banner -->
     <section class="w-10/12 mx-auto flex justify-between items-center mt-24">
-        <div class="w-1/2">
+        <div class="w-1/2 space-y-8">
             <h1 class="text-4xl font-bold text-primary">Donate Blood, Save Lives</h1>
             <p class="text-lg mt-4">Donate blood and save lives. Your blood donation can help save lives. Donate
                 blood today and help those in need.</p>
@@ -143,16 +143,16 @@
 
     <!-- about section -->
     <section id="about" class="w-10/12 mx-auto mt-20 flex justify-between gap-5">
-        <div class="bg-primary text-white rounded-lg p-20 flex-1">
+        <div class="bg-primary text-white rounded-lg p-20 md:w-1/2 space-y-6">
             <h1 class="text-4xl font-bold">What are we?</h1>
-            <p class="text-lg mt-4">DonateRed is a blood donation platform that connects blood donors with those in need
+            <p>DonateRed is a blood donation platform that connects blood donors with those in need
                 of blood. We aim to make blood donation easier and more accessible to everyone.</p>
 
-            <button class="btn bg-white text-primary mt-4">Donate Now</button>
+            <button class="btn bg-white text-primary">Donate Now</button>
         </div>
 
-        <div class="flex-1">
-            <iframe class="rounded-lg" width="600" height="365"
+        <div class="md:w-1/2">
+            <iframe class="rounded-lg w-full h-64 lg:h-96"
                 src="https://www.youtube.com/embed/oXRVHusvcMU?si=oSieLN1Li6yhRuQ3" title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -218,9 +218,45 @@
         </div>
     </section>
 
-
+    <!-- how it works section -->
+    <section id="donation"
+        class="w-10/12 mx-auto py-32 flex flex-col lg:flex-row justify-between items-center gap-10">
+        <div class="md:w-1/2">
+            <h2 class="text-4xl font-bold text-primary">How It Works</h2>
+            <p class="text-lg mt-4">The blood donation process is simple and easy. Here's how it works:</p>
+            <div class="mt-6 space-y-4">
+                <div class="flex items-start">
+                    <div class="bg-primary text-white rounded-full h-10 w-10 flex items-center justify-center mr-4">1
+                    </div>
+                    <p class="text-lg">Register: Sign up to become a blood donor on our platform.</p>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-primary text-white rounded-full h-10 w-10 flex items-center justify-center mr-4">2
+                    </div>
+                    <p class="text-lg">Find a Donation Center: Locate a blood donation center near you.</p>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-primary text-white rounded-full h-10 w-10 flex items-center justify-center mr-4">3
+                    </div>
+                    <p class="text-lg">Donate Blood: Visit the donation center and donate blood.</p>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-primary text-white rounded-full h-10 w-10 flex items-center justify-center mr-4">4
+                    </div>
+                    <p class="text-lg">Save Lives: Your blood donation can help save lives.</p>
+                </div>
+            </div>
+        </div>
+        <div class="md:w-1/2">
+            <iframe class="rounded-lg w-full h-64 lg:h-96"
+                src="https://www.youtube.com/embed/jmhiHKsEUXU?si=UgLy5bVhC2tpASgu" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </section>
     <!-- footer section -->
-    <footer class="bg-primary text-white py-10">
+    <footer id="footer" class="bg-primary text-white py-10">
         <div class="w-10/12 mx-auto flex justify-between gap-20">
             <div class="w-1/2">
                 <h3 class="text-2xl font-bold">DonateRed</h3>
