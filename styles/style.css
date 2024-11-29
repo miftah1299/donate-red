@@ -4,15 +4,11 @@ a:hover {
 }
 
 a:active {
-    color: goldenrod;
+    color: yellow;
     text-decoration: none;
 }
 
 a:focus {
-    outline: none;
-    color: red;
-}
-
-a::after {
+    /* outline: none; */
     color: yellow;
 }
