@@ -4,6 +4,8 @@ DonateRed is a web application designed to facilitate blood donations. The appli
 
 ## Features
 
+## Features
+
 -   Home, About, Donations, and Contact Us pages
 -   Search functionality
 -   Join Us button
