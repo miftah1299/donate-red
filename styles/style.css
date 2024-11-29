@@ -1,0 +1,18 @@
+a:hover {
+    color: #ccc;
+    text-decoration: none;
+}
+
+a:active {
+    color: goldenrod;
+    text-decoration: none;
+}
+
+a:focus {
+    outline: none;
+    color: red;
+}
+
+a::after {
+    color: yellow;
+}

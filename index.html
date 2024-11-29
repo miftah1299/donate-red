@@ -19,7 +19,9 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#800000',
+                        primary: '#8A0302',
+                        secondary: '#B79455',
+                        background: '#FCFCFC',
                     },
                     fontFamily: {
                         roboto: ['Roboto', 'sans-serif']
@@ -32,7 +34,7 @@
 
 <body class="font-roboto">
     <!-- navbar -->
-    <nav class="sticky top-0 backdrop-blur-md bg-white/30 z-50">
+    <nav class="sticky top-0 backdrop-blur-md bg-white/45 z-50">
         <div class="navbar w-10/12 mx-auto flex justify-between py-4 px-0">
             <div class="navbar-start">
                 <div class="dropdown">
@@ -51,7 +53,7 @@
                         <li><a>Contact Us</a></li>
                     </ul>
                 </div>
-                <a class="text-3xl text-red-600 font-bold hover:bg-transparent">DonateRed</a>
+                <a href="/index.html" class="text-3xl text-red-500 font-bold hover:bg-transparent">DonateRed</a>
             </div>
 
             <div class="form-control mr-6">
@@ -68,7 +70,7 @@
             </div>
 
             <div class="navbar-end">
-                <a href="login.html" class="btn bg-primary text-white px-8">Join Us</a>
+                <a href="login.html" class="btn bg-primary text-white hover:bg-secondary px-8">Join Us</a>
             </div>
         </div>
     </nav>
@@ -79,7 +81,7 @@
             <h1 class="text-4xl font-bold text-primary">Donate Blood, Save Lives</h1>
             <p class="text-lg mt-4">Donate blood and save lives. Your blood donation can help save lives. Donate
                 blood today and help those in need.</p>
-            <a href="#" class="btn bg-primary text-white mt-4">Donate Now</a>
+            <a href="#" class="btn bg-primary text-white px-8 hover:bg-secondary mt-4">Donate Now</a>
         </div>
         <div class="">
             <img src="images/world-blood-donor-day_1017-19140.avif" alt="banner" class="w-96 h-96">
@@ -94,7 +96,8 @@
                 Frequently Asked Questions about blood donation. If you have any other questions, feel free to contact
                 us. We are here to help.
             </p>
-            <button class="btn bg-primary text-white mt-4">Ask a question</button>
+            <button onclick="location.href='#footer'" class="btn bg-primary text-white hover:bg-secondary mt-4">Ask a
+                question</button>
         </div>
 
         <div>
@@ -145,7 +148,7 @@
             <p>DonateRed is a blood donation platform that connects blood donors with those in need
                 of blood. We aim to make blood donation easier and more accessible to everyone.</p>
 
-            <button class="btn bg-white text-primary">Donate Now</button>
+            <button class="btn bg-white text-primary hover:bg-secondary">Donate Now</button>
         </div>
 
         <div class="md:w-1/2">
@@ -251,7 +254,7 @@
                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
     </section>
-    
+
     <!-- footer section -->
     <footer id="footer" class="bg-primary text-white py-10">
         <div class="w-10/12 mx-auto flex justify-between gap-20">
