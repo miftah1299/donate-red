@@ -26,7 +26,8 @@
                     colors: {
                         primary: '#800000',
                         secondary: '#B79455',
-                        background: '#FCFCFC',
+                        background: '#DAD4B5',
+                        accent: '#F2E8C6'
                     },
                     fontFamily: {
                         roboto: ['Roboto', 'sans-serif']
@@ -63,7 +64,7 @@
                 <a href="#" class="text-3xl text-red-500 font-bold hover:bg-transparent mr-4">DonateRed</a>
             </div>
 
-            <div class="form-control mr-6">
+            <div class="form-control mr-6 hidden md:flex">
                 <label class="input input-bordered flex items-center gap-2">
                     <input type="text" class="grow" placeholder="Search" />
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
@@ -91,21 +92,23 @@
     </nav>
 
     <!-- banner -->
-    <section class="w-10/12 mx-auto md:flex justify-between items-center mt-24 space-y-10">
+    <section class="w-10/12 mx-auto flex flex-col md:flex-row justify-between items-center gap-20 mt-12 md:mt-24">
         <div class="md:w-1/2 space-y-8">
             <h1 class="text-4xl font-bold text-primary">Donate Blood, Save Lives</h1>
-            <p class="text-lg mt-4">Donate blood and save lives. Your blood donation can help save lives. Donate
-                blood today and help those in need.</p>
+            <p class="text-lg mt-4">Every 2 seconds, someone in the world needs blood. You can make a difference by
+                donating blood today. Join us in our mission to save lives. Donate blood, save lives.
+            </p>
             <a href="login.html" class="btn bg-primary text-white px-8 hover:bg-secondary mt-4">Donate Now</a>
         </div>
 
-        <div class="">
-            <img src="images/world-blood-donor-day_1017-19140.avif" alt="banner" class="w-96 h-96">
+        <div class="md:w-1/2 mx-auto">
+            <img src="https://i.ibb.co.com/RvdBhXs/human-blood-donate-and-heart-rate-on-white-background-free-vector.jpg"
+                alt="banner" class="w-full h-48 md:h-96 object-contain">
         </div>
     </section>
 
     <!-- faq section -->
-    <section id="faq" class="w-10/12 mx-auto mt-24 py-24 md:flex justify-between space-y-5">
+    <section id="faq" class="w-10/12 mx-auto mt-12 md:mt-24 py-24 flex flex-col md:flex-row gap-10 justify-between">
         <div class="md:mr-28">
             <h1 class="text-4xl font-bold">FAQ</h1>
             <p class="text-lg mt-4">
@@ -158,58 +161,66 @@
 
 
     <!-- about section -->
-    <section id="about" class="w-10/12 mx-auto mt-20">
-        <h2 class="text-4xl font-bold text-center">About Us</h2>
-        <p class="md:w-2/3 mx-auto text-center mt-4">DonateRed is a blood donation platform that connects blood donors
-            with those in
-            need of blood. We aim to make blood donation easier and more accessible to everyone.</p>
+    <section id="about" class="bg-accent py-24">
+        <div class="w-10/12 mx-auto">
+            <h2 class="text-4xl font-bold text-center">About Us</h2>
+            <p class="md:w-2/3 mx-auto text-center mt-4">DonateRed is a blood donation platform that connects blood
+                donors with those in need of blood. We aim to make blood donation easier and more accessible to
+                everyone.</p>
 
-        <div class="flex flex-col md:flex-row justify-between gap-5 mt-10">
-            <div class="bg-primary text-white rounded-lg p-20 md:w-1/2 space-y-5">
-                <h1 class="text-4xl font-bold">What are we?</h1>
-                <p>DonateRed is a blood donation platform that connects blood donors with those in need
-                    of blood. We aim to make blood donation easier and more accessible to everyone.</p>
+            <div class="flex flex-col md:flex-row justify-between gap-5 mt-10">
+                <div class="bg-primary text-white rounded-lg p-10 md:p-20 md:w-1/2 space-y-5">
+                    <h1 class="text-4xl font-bold">What are we?</h1>
+                    <p>DonateRed is a blood donation platform that connects blood donors with those in need
+                        of blood. We aim to make blood donation easier and more accessible to everyone.</p>
 
-                <button class="btn bg-white text-primary hover:bg-secondary">Donate Now</button>
-            </div>
+                    <button class="btn bg-white text-primary hover:bg-secondary">Donate Now</button>
+                </div>
 
-            <div class="md:w-1/2">
-                <iframe class="rounded-lg w-full h-64 lg:h-96"
-                    src="https://www.youtube.com/embed/oXRVHusvcMU?si=oSieLN1Li6yhRuQ3" title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="md:w-1/2 w-full">
+                    <iframe class="rounded-lg w-full h-64 lg:h-96"
+                        src="https://www.youtube.com/embed/oXRVHusvcMU?si=oSieLN1Li6yhRuQ3" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
             </div>
         </div>
     </section>
 
 
     <!-- meet our team section -->
-    <section id="team" class="w-10/12 mx-auto mt-24 py-24">
+    <section id="team" class="w-10/12 mx-auto py-24">
         <h2 class="text-4xl font-bold text-center">Meet Our Team</h2>
         <p class="text-center mt-4">Our team is made up of experienced professionals who are passionate about making a
             difference.</p>
 
         <div class="flex flex-col md:flex-row justify-between gap-5 mt-10">
             <div class="bg-white rounded-lg shadow-lg p-5 flex-1 text-center">
-                <img src="images/client.jpeg" alt="Team Member 1" class="rounded-full w-32 h-32 mx-auto">
-                <h3 class="text-xl font-bold mt-4">Alice Brown</h3>
+                <img src="https://i.ibb.co.com/42SXZLf/boy1.png" alt="Team Member 1"
+                    class="rounded-full w-32 h-32 mx-auto">
+                <h3 class="text-xl font-bold mt-4">Johnson</h3>
                 <p class="text-primary">CEO</p>
-                <p class="mt-2">Alice is the CEO of DonateRed and has over 10 years of experience in the blood donation
+                <p class="mt-2">Johnson is the CEO of DonateRed and has over 10 years of experience in the blood
+                    donation
                     industry.</p>
             </div>
+
             <div class="bg-white rounded-lg shadow-lg p-5 flex-1 text-center">
-                <img src="images/client.jpeg" alt="Team Member 2" class="rounded-full w-32 h-32 mx-auto">
-                <h3 class="text-xl font-bold mt-4">Bob Green</h3>
+                <img src="https://i.ibb.co.com/MRvQMK8/girl-avatar-260nw-1459862774.webp" alt="Team Member 2"
+                    class="rounded-full w-32 h-32 mx-auto">
+                <h3 class="text-xl font-bold mt-4">Siri</h3>
                 <p class="text-primary">COO</p>
-                <p class="mt-2">Bob is the COO of DonateRed and is passionate about making blood donation accessible to
+                <p class="mt-2">Siri is the COO of DonateRed and is passionate about making blood donation accessible to
                     everyone.</p>
             </div>
+
             <div class="bg-white rounded-lg shadow-lg p-5 flex-1 text-center">
-                <img src="images/client.jpeg" alt="Team Member 3" class="rounded-full w-32 h-32 mx-auto">
-                <h3 class="text-xl font-bold mt-4">Charlie Davis</h3>
+                <img src="https://i.ibb.co.com/p2vzj5t/woman-avatar-character-icon-free-vector.jpg" alt="Team Member 3"
+                    class="rounded-full w-32 h-32 mx-auto">
+                <h3 class="text-xl font-bold mt-4">Era</h3>
                 <p class="text-primary">CTO</p>
-                <p class="mt-2">Charlie is the CTO of DonateRed and has a background in software development and
+                <p class="mt-2">Era is the CTO of DonateRed and has a background in software development and
                     healthcare technology.</p>
             </div>
         </div>
@@ -217,7 +228,7 @@
 
 
     <!-- our values section -->
-    <section id="values" class="mt-24 bg-zinc-100 py-24">
+    <section id="values" class="bg-zinc-100 py-24">
         <div class="w-10/12 mx-auto">
             <h2 class="text-4xl font-bold text-center">Our Values</h2>
             <p class="text-center mt-4">Our values are the foundation of our organization and guide everything we do.
@@ -273,7 +284,7 @@
             </div>
         </div>
 
-        <div class="md:w-1/2">
+        <div class="md:w-1/2 w-full">
             <iframe class="rounded-lg w-full h-64 lg:h-96"
                 src="https://www.youtube.com/embed/jmhiHKsEUXU?si=UgLy5bVhC2tpASgu" title="YouTube video player"
                 frameborder="0"
@@ -292,15 +303,15 @@
             </div>
             <div>
                 <h3 class="text-2xl font-bold">Contact Us</h3>
-                <p class="mt-4">123 Main Street, New York, NY 10001</p>
-                <p>Email: <a href="info@donatered.com" class="text-white underline">info@donatered.com</a></p>
-                <p>Phone: <a href="+1234567890" class="text-white underline">+1 234 567 890</a></p>
+                <p class="mt-4">1234 Main Street, Dhaka, Bangladesh</p>
+                <p>Email: <a class="text-white underline">info@donatered.com</a></p>
+                <p>Phone: <a class="text-white underline">+880 12345-67890</a></p>
             </div>
 
             <div>
                 <h3 class="text-2xl font-bold">Follow Us</h3>
                 <div class="mt-4 flex space-x-4">
-                    <a href="#" class="text-white">
+                    <a href="https://twitter.com/" class="text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             class="fill-current">
                             <path
@@ -308,7 +319,7 @@
                             </path>
                         </svg>
                     </a>
-                    <a href="#" class="text-white">
+                    <a href="https://www.youtube.com/" class="text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             class="fill-current">
                             <path
@@ -316,7 +327,7 @@
                             </path>
                         </svg>
                     </a>
-                    <a href="#" class="text-white">
+                    <a href="https://www.facebook.com/" class="text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             class="fill-current">
                             <path
@@ -328,10 +339,13 @@
             </div>
         </div>
         <div class="w-10/12 mx-auto mt-10 border-t border-gray-200 pt-5 text-center">
-            <p>&copy; 2024 DonateRed. All rights reserved.</p>
+            <p>&copy; <span id="currentYear"></span> DonateRed. All rights reserved.</p>
         </div>
     </footer>
 
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 
 </html>
