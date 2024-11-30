@@ -14,6 +14,7 @@
     <!-- tailwind css and daisy ui -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -21,7 +22,8 @@
                     colors: {
                         primary: '#800000',
                         secondary: '#B79455',
-                        background: '#FCFCFC',
+                        background: '#DAD4B5',
+                        accent: '#F2E8C6'
                     },
                     fontFamily: {
                         roboto: ['Roboto', 'sans-serif']
@@ -70,7 +72,7 @@
                         class="input input-bordered w-full mt-2" required>
                 </div>
                 <button type="submit" onsubmit="location.href='dashboard.html'"
-                    class="btn bg-secondary hover:bg-red-600 text-white w-full">Register</button>
+                    class="btn bg-blue-800 hover:bg-blue-500 text-white w-full rounded-full">Register</button>
             </form>
             <p class="text-center mt-4">Already have an account? <a href="login.html"
                     class="text-primary font-medium hover:underline">Login</a></p>
