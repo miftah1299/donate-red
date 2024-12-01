@@ -35,6 +35,14 @@
             }
         }
     </script>
+    <style>
+        main#view-panel {
+            margin-left: 250px;
+            width: calc(100% - 250px);
+            margin-top: 3.5rem;
+            padding: .5em
+        }
+    </style>
 </head>
 
 <body class="font-roboto bg-background">
@@ -152,9 +160,10 @@
         </div>
     </div>
 
-
-    <!-- js -->
-    <script src="js/index.js"></script>
+    <main id="view-panel">
+        <?php $page = isset($_GET['page']) ? $_GET['page'] : 'home'; ?>
+        <?php include $page . '.php' ?>
+    </main>
 </body>
 
 </html>
