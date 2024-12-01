@@ -23,7 +23,7 @@
             theme: {
                 extend: {
                     colors: {
-                        primaryRedDark: '#800000',
+                        primaryRed: '#800000',
                         secondaryGold: '#B79455',
                         background: '#DAD4B5',
                         accent: '#F2E8C6'
@@ -39,30 +39,11 @@
 
 <body class="font-roboto bg-background">
     <!-- navbar -->
-    <nav class="sticky top-0 backdrop-blur-md bg-white/45 z-50">
-        <div class="navbar container mx-auto flex justify-between py-4 px-6">
-            <div class="navbar-start">
-                <a href="index.html" class="text-3xl text-red-500 font-bold mr-4">DonateRed</a>
-            </div>
-
-            <div class="navbar-end">
-                <a href="login.html" class="btn bg-primaryRedDark text-white hover:bg-secondaryGold px-8">Logout</a>
-            </div>
-        </div>
-    </nav>
+    <?php include 'navbar.php' ?>
 
     <div class="min-h-screen flex">
         <!-- Sidebar -->
-        <div class="bg-primaryRedDark text-white w-64 p-6">
-            <h2 class="text-2xl font-bold mb-6">DonateRed Dashboard</h2>
-            <ul>
-                <li class="mb-4"><a href="#" onclick="showSection('')">Dashboard</a></li>
-                <li class="mb-4"><a href="#" onclick="showSection('donations')">Donations</a></li>
-                <li class="mb-4"><a href="#" onclick="showSection('donors')">Donors</a></li>
-                <li class="mb-4"><a href="#" onclick="showSection('recipients')">Recipients</a></li>
-                <li class="mb-4"><a href="/">Logout</a></li>
-            </ul>
-        </div>
+        <?php include 'sidebar.php' ?>
 
         <!-- Main Content -->
         <div class="flex-1 p-10">
