@@ -47,7 +47,7 @@
                 <li><a href="index.php?page=donations">Donations</a></li>
                 <li><a href="index.php?page=donors">Donors</a></li>
                 <li><a href="index.php?page=requests">Requests</a></li>
-                <li><a href="index.php?page=reciepients">Recipients</a></li>
+                <li><a href="index.php?page=handedovers">Recipients</a></li>
                 <li><a href="index.html">Logout</a></li>
             </ul>
         </div>
