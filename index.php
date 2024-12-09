@@ -37,8 +37,9 @@
     </script>
     <style>
         main#view-panel {
-            margin-left: 250px;
-            width: calc(100% - 250px);
+            margin-left: 50px;
+            width: calc(100% - 50px);
+            width: 100%;
             margin-top: 3.5rem;
             padding: .5em
         }

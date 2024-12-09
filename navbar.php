@@ -49,15 +49,6 @@
             </div>
         </div>
     </nav>
-
-    <!-- js -->
-    <script>
-        $('.nav_collapse').click(function() {
-            console.log($(this).attr('href'))
-            $($(this).attr('href')).collapse()
-        })
-        $('.nav-<?php echo isset($_GET['page']) ? $_GET['page'] : '' ?>').addClass('active')
-    </script>
 </body>
 
 </html>
