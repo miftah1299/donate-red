@@ -12,7 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
     <!-- tailwind css and daisy ui -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.19/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- css  -->
@@ -25,6 +25,7 @@
                     colors: {
                         primaryRed: '#800000',
                         secondaryGold: '#B79455',
+                        burntOrange: '#C04E3F',
                         background: '#DAD4B5',
                         accent: '#F2E8C6'
                     },

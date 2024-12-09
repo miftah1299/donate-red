@@ -1,7 +1,7 @@
 <?php include('db_connect.php'); ?>
 
 <!-- tailwind css and daisy ui -->
-<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.19/dist/full.min.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.tailwindcss.com"></script>
 
 <section class="container-fluid">
@@ -24,6 +24,7 @@
 								<i class="fa fa-plus"></i> New Entry
 							</a></span>
 					</div>
+
 					<div class="card-body">
 						<table class="table table-condensed table-bordered table-hover">
 							<thead>
