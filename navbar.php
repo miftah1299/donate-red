@@ -30,7 +30,7 @@ if (!isset($_SESSION['system'])) {
                         primaryRed: '#800000',
                         secondaryGold: '#B79455',
                         background: '#DAD4B5',
-                        accent: '#F2E8C6'
+                        accentColor: '#F2E8C6'
                     },
                     fontFamily: {
                         roboto: ['Roboto', 'sans-serif']

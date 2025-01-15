@@ -1,3 +1,5 @@
+<?php include 'db_connect.php' ?>
+
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 
@@ -34,34 +36,157 @@
             }
         }
     </script>
-    
-    <?php include 'db_connect.php' ?>
+
+    <style>
+        span.float-right.summary_icon {
+            font-size: 2.25rem;
+            position: absolute;
+            right: 1rem;
+            top: 0;
+        }
+    </style>
 </head>
 
 <body class="font-roboto bg-background">
-    <div class="min-h-screen flex">
-        <!-- Main Content -->
-        <div class="flex-1 p-10">
-            <h1 class="text-3xl font-bold mb-6">Welcome to the Dashboard</h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h2 class="text-xl font-bold mb-4">Total Donations</h2>
-                    <p class="text-3xl">150</p>
-                </div>
-                <!-- Card 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h2 class="text-xl font-bold mb-4">Total Donors</h2>
-                    <p class="text-3xl">75</p>
-                </div>
-                <!-- Card 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h2 class="text-xl font-bold mb-4">Total Recipients</h2>
-                    <p class="text-3xl">50</p>
+    <div class="container mx-auto mt-3">
+        <div class="grid grid-cols-1 gap-4">
+            <div class="col-span-1">
+                <div class="card">
+                    <div class="card-body">
+                        <?php echo "Welcome back " . $_SESSION['login_name'] . "!"  ?>
+                        <hr class="my-4">
+                        <h4 class="text-lg font-bold">Available Blood per group in Liters</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+                            <?php
+                            $blood_group = array("A+", "B+", "O+", "AB+", "A-", "B-", "O-", "AB-");
+                            foreach ($blood_group as $v) {
+                                $bg_inn[$v] = 0;
+                                $bg_out[$v] = 0;
+                            }
+                            $qry = $conn->query("SELECT * FROM blood_inventory ");
+                            while ($row = $qry->fetch_assoc()) {
+                                if ($row['status'] == 1) {
+                                    $bg_inn[$row['blood_group']] += $row['volume'];
+                                } else {
+                                    $bg_out[$row['blood_group']] += $row['volume'];
+                                }
+                            }
+                            ?>
+                            <?php foreach ($blood_group as $v): ?>
+                                <div class="card bg-gray-100 border-t-4 border-<?php echo $v == 'A+' ? 'red' : ($v == 'B+' ? 'blue' : ($v == 'O+' ? 'green' : 'yellow')) ?>-600 shadow-md">
+                                    <div class="card-body relative">
+                                        <span class="float-right summary_icon"> <?php echo $v ?> <i class="fa fa-tint text-red-600"></i></span>
+                                        <h4 class="text-xl font-bold">
+                                            <?php echo ($bg_inn[$v] - $bg_out[$v]) / 1000 ?>
+                                        </h4>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                        <hr class="my-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="card bg-gray-100 shadow-md">
+                                <div class="card-body relative">
+                                    <span class="float-right summary_icon"> <i class="fa fa-user-friends text-blue-600"></i></span>
+                                    <h4 class="text-xl font-bold">
+                                        <?php echo $conn->query("SELECT * FROM donors")->num_rows ?>
+                                    </h4>
+                                    <p class="text-sm font-medium">Total Donors</p>
+                                </div>
+                            </div>
+                            <div class="card bg-gray-100 shadow-md">
+                                <div class="card-body relative">
+                                    <span class="float-right summary_icon"> <i class="fa fa-notes-medical text-red-600"></i></span>
+                                    <h4 class="text-xl font-bold">
+                                        <?php echo $conn->query("SELECT * FROM blood_inventory where status = 1 and date(date_created) = '" . date('Y-m-d') . "' ")->num_rows ?>
+                                    </h4>
+                                    <p class="text-sm font-medium">Total Donated Today</p>
+                                </div>
+                            </div>
+                            <div class="card bg-gray-100 shadow-md">
+                                <div class="card-body relative">
+                                    <span class="float-right summary_icon"> <i class="fa fa-th-list"></i></span>
+                                    <h4 class="text-xl font-bold">
+                                        <?php echo $conn->query("SELECT * FROM requests where date(date_created) = '" . date('Y-m-d') . "' ")->num_rows ?>
+                                    </h4>
+                                    <p class="text-sm font-medium">Today's Requests</p>
+                                </div>
+                            </div>
+                            <div class="card bg-gray-100 shadow-md">
+                                <div class="card-body relative">
+                                    <span class="float-right summary_icon"> <i class="fa fa-check text-blue-600"></i></span>
+                                    <h4 class="text-xl font-bold">
+                                        <?php echo $conn->query("SELECT * FROM requests where date(date_created) = '" . date('Y-m-d') . "' and status = 1 ")->num_rows ?>
+                                    </h4>
+                                    <p class="text-sm font-medium">Today's Approved Requests</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="scripts/jquery-3.6.0.min.js"></script>
+    <script>
+        $('#manage-records').submit(function(e) {
+            e.preventDefault()
+            start_load()
+            $.ajax({
+                url: 'ajax.php?action=save_track',
+                data: new FormData($(this)[0]),
+                cache: false,
+                contentType: false,
+                processData: false,
+                method: 'POST',
+                type: 'POST',
+                success: function(resp) {
+                    resp = JSON.parse(resp)
+                    if (resp.status == 1) {
+                        alert_toast("Data successfully saved", 'success')
+                        setTimeout(function() {
+                            location.reload()
+                        }, 800)
+                    }
+                }
+            })
+        })
+        $('#tracking_id').on('keypress', function(e) {
+            if (e.which == 13) {
+                get_person()
+            }
+        })
+        $('#check').on('click', function(e) {
+            get_person()
+        })
+
+        function get_person() {
+            start_load()
+            $.ajax({
+                url: 'ajax.php?action=get_pdetails',
+                method: "POST",
+                data: {
+                    tracking_id: $('#tracking_id').val()
+                },
+                success: function(resp) {
+                    if (resp) {
+                        resp = JSON.parse(resp)
+                        if (resp.status == 1) {
+                            $('#name').html(resp.name)
+                            $('#address').html(resp.address)
+                            $('[name="person_id"]').val(resp.id)
+                            $('#details').show()
+                            end_load()
+                        } else if (resp.status == 2) {
+                            alert_toast("Unknown tracking id.", 'danger');
+                            end_load();
+                        }
+                    }
+                }
+            })
+        }
+    </script>
 </body>
 
 </html>
