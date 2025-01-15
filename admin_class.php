@@ -1,6 +1,7 @@
 <?php
 session_start();
 ini_set('display_errors', 1);
+// class to handle all db operations
 class Action
 {
     private $db;
@@ -11,14 +12,15 @@ class Action
 
         $this->db = $conn;
     }
+    // close db connection
     function __destruct() {
         $this->db->close();
         ob_end_flush();
     }
-
+    // login
     function login() {
-
         extract($_POST);
+
         $qry = $this->db->query("SELECT * FROM users where username = '" . $username . "' and password = '" . md5($password) . "' ");
         if ($qry->num_rows > 0) {
             foreach ($qry->fetch_array() as $key => $value) {
@@ -31,9 +33,10 @@ class Action
             return 3;
         }
     }
+    // login
     function login2() {
-
         extract($_POST);
+
         if (isset($email))
             $username = $email;
         $qry = $this->db->query("SELECT * FROM users where username = '" . $username . "' and password = '" . md5($password) . "' ");
@@ -63,6 +66,7 @@ class Action
             return 3;
         }
     }
+    // logout
     function logout() {
         session_destroy();
         foreach ($_SESSION as $key => $value) {
@@ -70,6 +74,7 @@ class Action
         }
         header("location:login.php");
     }
+    // logout
     function logout2() {
         session_destroy();
         foreach ($_SESSION as $key => $value) {
@@ -77,9 +82,10 @@ class Action
         }
         header("location:../index.php");
     }
-
+    // save user
     function save_user() {
         extract($_POST);
+
         $data = " name = '$name' ";
         $data .= ", username = '$username' ";
         if (!empty($password))
@@ -100,14 +106,18 @@ class Action
             return 1;
         }
     }
+    // delete user
     function delete_user() {
         extract($_POST);
+
         $delete = $this->db->query("DELETE FROM users where id = " . $id);
         if ($delete)
             return 1;
     }
+    // signup
     function signup() {
         extract($_POST);
+        
         $data = " name = '" . $firstname . ' ' . $lastname . "' ";
         $data .= ", username = '$email' ";
         $data .= ", password = '" . md5($password) . "' ";
@@ -143,6 +153,7 @@ class Action
             }
         }
     }
+    // update account
     function update_account() {
         extract($_POST);
         $data = " name = '" . $firstname . ' ' . $lastname . "' ";
@@ -181,7 +192,7 @@ class Action
             }
         }
     }
-
+    // save settings
     function save_settings() {
         extract($_POST);
         $data = " name = '" . str_replace("'", "&#x2019;", $name) . "' ";
@@ -212,7 +223,7 @@ class Action
         }
     }
 
-
+    // save donor
     function save_donor() {
         extract($_POST);
         $data = " name = '$name' ";
@@ -228,6 +239,7 @@ class Action
         if ($save)
             return 1;
     }
+    // delete donor
     function delete_donor() {
         extract($_POST);
         $delete = $this->db->query("DELETE FROM donors where id = " . $id);
@@ -235,6 +247,7 @@ class Action
             return 1;
         }
     }
+    // save donation
     function save_donation() {
         extract($_POST);
         $data = " donor_id = '$donor_id' ";
@@ -250,6 +263,7 @@ class Action
         if ($save)
             return 1;
     }
+    // delete donation
     function delete_donation() {
         extract($_POST);
         $delete = $this->db->query("DELETE FROM blood_inventory where id = " . $id);
@@ -257,6 +271,7 @@ class Action
             return 1;
         }
     }
+    // save request
     function save_request() {
         extract($_POST);
         $data = " patient = '$patient' ";
@@ -284,6 +299,7 @@ class Action
         if ($save)
             return 1;
     }
+    // delete request
     function delete_request() {
         extract($_POST);
         $delete = $this->db->query("DELETE FROM requests where id = " . $id);
@@ -291,6 +307,7 @@ class Action
             return 1;
         }
     }
+    // get available blood
     function get_available()
     {
         extract($_POST);
@@ -307,6 +324,7 @@ class Action
         $available = $available / 1000;
         return $available;
     }
+    // check request
     function chk_request() {
         extract($_POST);
         $qry = $this->db->query("SELECT * FROM requests where ref_code = '$ref_code'");
@@ -335,6 +353,7 @@ class Action
             $data['data']['volumeL'] = $data['data']['volume'] / 1000;
         return json_encode($data);
     }
+    // save handover
     function save_handover() {
         extract($_POST);
         $data = "";
@@ -369,6 +388,7 @@ class Action
             return 1;
         }
     }
+    // delete handover
     function delete_handover() {
         extract($_POST);
         $request_id = $this->db->query("SELECT * FROM handedover_request where id= '$id' ")->fetch_array()['request_id'];
