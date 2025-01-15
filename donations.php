@@ -1,37 +1,35 @@
 <?php include('db_connect.php'); ?>
 
-<div class="container mx-auto p-4">
+<div class="container-fluid">
 
-    <div class="w-full">
-        <div class="mb-4 mt-4">
-            <div class="w-full">
+    <div class="col-lg-12">
+        <div class="row mb-4 mt-4">
+            <div class="col-md-12">
 
             </div>
         </div>
-        <div class="w-full">
+        <div class="row">
             <!-- FORM Panel -->
 
             <!-- Table Panel -->
-            <div class="w-full">
-                <div class="bg-white shadow-md rounded-lg">
-                    <div class="bg-gray-800 text-white p-4 rounded-t-lg">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
                         <b>List of Donations</b>
-                        <span class="float-right">
-                            <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block" href="javascript:void(0)" id="new_donation">
+                        <span class="float:right"><a class="btn btn-primary btn-block btn-sm col-sm-2 float-right" href="javascript:void(0)" id="new_donation">
                                 <i class="fa fa-plus"></i> New Entry
-                            </a>
-                        </span>
+                            </a></span>
                     </div>
-                    <div class="p-4">
-                        <table class="min-w-full bg-white">
+                    <div class="card-body">
+                        <table class="table table-condensed table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th class="text-center border px-4 py-2">#</th>
-                                    <th class="border px-4 py-2">Date</th>
-                                    <th class="border px-4 py-2">Donor</th>
-                                    <th class="border px-4 py-2">Blood Group</th>
-                                    <th class="border px-4 py-2">Volume (ml)</th>
-                                    <th class="text-center border px-4 py-2">Action</th>
+                                    <th class="text-center">#</th>
+                                    <th class="">Date</th>
+                                    <th class="">Donor</th>
+                                    <th class="">Blood Group</th>
+                                    <th class="">Volume (ml)</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -50,13 +48,13 @@
                                         <td>
                                             <?php echo date('M d, Y', strtotime($row['date_created'])) ?>
                                         </td>
-                                        <td class="text-center">
+                                        <td class="">
                                             <p> <b><?php echo isset($dname[$row['donor_id']]) ? $dname[$row['donor_id']] : 'Donor was removed from the list.' ?></b></p>
                                         </td>
-                                        <td class="text-center">
+                                        <td class="">
                                             <p> <b><?php echo $row['blood_group'] ?></b></p>
                                         </td>
-                                        <td class="text-center">
+                                        <td class="">
                                             <p><b><?php echo $row['volume']; ?></b></p>
                                         </td>
                                         <td class="text-center">
@@ -70,8 +68,10 @@
                     </div>
                 </div>
             </div>
+            <!-- Table Panel -->
         </div>
     </div>
+
 </div>
 <style>
     td {
@@ -87,8 +87,7 @@
         max-height: 150px;
     }
 </style>
-
-<!-- <script>
+<script>
     $(document).ready(function() {
         $('table').dataTable()
     })
@@ -124,4 +123,4 @@
             }
         })
     }
-</script> -->
+</script>
